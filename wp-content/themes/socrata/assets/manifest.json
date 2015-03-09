@@ -22,6 +22,9 @@
     },
     "modernizr.js": {
       "bower": ["modernizr"]
+    },
+    "classie.js": {
+      "bower": ["classie"]
     }
   },
   "config": {
