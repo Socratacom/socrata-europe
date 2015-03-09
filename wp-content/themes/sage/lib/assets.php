@@ -53,13 +53,13 @@ class JsonManifest {
 }
 
 function asset_path($filename) {
-  $dist_path = get_template_directory_uri() . '/dist/';
+  $dist_path = get_template_directory_uri() . DIST_DIR;
   $directory = dirname($filename) . '/';
   $file = basename($filename);
   static $manifest;
 
   if (empty($manifest)) {
-    $manifest_path = get_template_directory() . '/dist/assets.json';
+    $manifest_path = get_template_directory() . DIST_DIR . 'assets.json';
     $manifest = new JsonManifest($manifest_path);
   }
 
@@ -130,12 +130,12 @@ function jquery_local_fallback($src, $handle = null) {
   static $add_jquery_fallback = false;
 
   if ($add_jquery_fallback) {
-    echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/dist/scripts/jquery.js"><\/script>\')</script>' . "\n";
+    echo '<script>window.jQuery || document.write(\'<script src="' . $add_jquery_fallback .'"><\/script>\')</script>' . "\n";
     $add_jquery_fallback = false;
   }
 
   if ($handle === 'jquery') {
-    $add_jquery_fallback = true;
+    $add_jquery_fallback = apply_filters('script_loader_src', asset_path('scripts/jquery.js'), 'jquery-fallback');
   }
 
   return $src;
@@ -171,4 +171,3 @@ function google_analytics() {
 if (GOOGLE_ANALYTICS_ID) {
   add_action('wp_footer', __NAMESPACE__ . '\\google_analytics', 20);
 }
-
