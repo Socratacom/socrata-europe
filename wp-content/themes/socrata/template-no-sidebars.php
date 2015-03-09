@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Custom Template
+ * Template Name: No Sidebars
  */
 ?>
 <?php while (have_posts()) : the_post(); ?>
