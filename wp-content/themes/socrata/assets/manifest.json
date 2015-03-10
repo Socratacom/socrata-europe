@@ -28,6 +28,6 @@
     }
   },
   "config": {
-    "devUrl": "example.dev"
+    "devUrl": "dev.socrata.co.uk"
   }
 }

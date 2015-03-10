@@ -29,16 +29,20 @@
       <a class="white-logo header-logo" href="<?php echo home_url('/'); ?>"></a>
       <a class="corporate-link hidden-xs" href="http://socrata.com"><i class="fa fa-chevron-left"></i> Back to Socrata.com</a>
       <!-- Main Menu -->
-      <?php wp_nav_menu( array( 'theme_location' => 'header', 'container_class' => 'hidden-xs' )); ?>
+      <?php
+      if (has_nav_menu('primary_navigation')) :
+        wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav']);
+      endif;
+      ?>
       <!-- Mobile Menu -->
-      <ul id="gn-menu" class="gn-menu-main hidden-sm hidden-md hidden-lg">
+      <!--<ul id="gn-menu" class="gn-menu-main hidden-sm hidden-md hidden-lg">
         <li class="gn-trigger">
           <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
           <nav class="gn-menu-wrapper">
             <?php wp_nav_menu( array( 'theme_location' => 'mobile', 'container_class' => 'gn-scroller', 'menu_class' => 'gn-menu' )); ?>
           </nav>
         </li>
-      </ul>
+      </ul>-->
     </div>
   </nav>
 </header>
