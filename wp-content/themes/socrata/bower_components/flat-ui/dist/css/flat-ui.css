@@ -4043,8 +4043,8 @@ fieldset[disabled] .input-group-btn .btn-default.active {
 }
 .navbar .container,
 .navbar .container-fluid {
-  padding-left: 21px;
-  padding-right: 21px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 .navbar .container > .navbar-header,
 .navbar .container-fluid > .navbar-header,
