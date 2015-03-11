@@ -21,27 +21,27 @@
 .guide #content p {
   line-height: normal;
 }
-.guide .sidebar ul.menu {
+.guide .guide-sidebar ul.menu {
   list-style-type: none;
   margin:0;
   padding: 0;
 }
-.guide .sidebar .menu a {
+.guide .guide-sidebar .menu a {
   padding: 0;
 }
-.guide .sidebar .menu li {
+.guide .guide-sidebar .menu li {
   border-bottom:#e3e3e3 solid 1px;
   padding:0;
   line-height: normal;
   position: relative;
 }
-.guide .sidebar .menu li:hover {
+.guide .guide-sidebar .menu li:hover {
   background:#ECF0F1;
 }
-.guide .sidebar .menu li:first-child {
+.guide .guide-sidebar .menu li:first-child {
   border-top:#e3e3e3 solid 1px;
 }
-.guide .sidebar .menu li::before {
+.guide .guide-sidebar .menu li::before {
   content: "\f02e";
   font-family:FontAwesome;  
   position: absolute;
@@ -49,16 +49,16 @@
   top:11px;
   color:#C0392B;
 }
-.guide .sidebar .menu a {  
+.guide .guide-sidebar .menu a {  
   font-size: 14px;
   font-weight: 400;
   padding: 8px 8px 8px 25px;
   display: block;
 }
-.guide .sidebar .menu a:hover {
+.guide .guide-sidebar .menu a:hover {
   color:#2980B9;
 }
-.guide .sidebar h4 {
+.guide .guide-sidebar h4 {
   text-transform: uppercase;
   padding-bottom: 20px;
 }

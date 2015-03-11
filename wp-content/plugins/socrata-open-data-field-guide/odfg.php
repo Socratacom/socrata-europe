@@ -16,8 +16,8 @@ function create_guide() {
   register_post_type( 'guide',
     array(
       'labels' => array(
-        'name' => 'OD Field Guide',
-        'singular_name' => 'OD Field Guide',
+        'name' => 'OD Guide',
+        'singular_name' => 'OD Guide',
         'add_new' => 'Add New Chapter',
         'add_new_item' => 'Add New Chapter',
         'edit' => 'Edit Chapter',
@@ -35,7 +35,7 @@ function create_guide() {
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'odfg')
+      'rewrite' => array('with_front' => false, 'slug' => 'open-data-guide-chapter')
     )
   );
 }
@@ -86,9 +86,9 @@ function guide_script_loading() {
 add_action('wp_enqueue_scripts', 'guide_script_loading');
 
 // Body Classes for Styling 
-add_filter('thesis_body_classes', 'guide_styling');
+add_filter('body_class', 'guide_styling');
 function guide_styling($classes) {
-  if (is_page('open-data-field-guide') || 'guide' == get_post_type() && is_archive() || 'guide' == get_post_type() && is_single()) { 
+  if (is_page('open-data-guide') || 'guide' == get_post_type() && is_archive() || 'guide' == get_post_type() && is_single()) { 
     $classes[] = 'guide'; 
   }
   return $classes; 
@@ -98,7 +98,7 @@ function guide_styling($classes) {
 // Display Post Type Query on main page
 add_action('thesis_hook_custom_template', 'open_data_guide_page');
 function open_data_guide_page(){
-if (is_page('open-data-field-guide')) { ?>
+if (is_page('open-data-field-guide-poop')) { ?>
 
 <section id="hero">
   <div class="wrapper format_text jumplinks">
@@ -165,7 +165,7 @@ function guide_shortcode($atts, $content = null) { ob_start(); ?>
     $third_div_clear = ($count%3 == 0) ? '<div class="clearboth"></div>' : '';
   ?>
 
-
+<p><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 
   <?php echo $third_div_clear; ?>  
   <?php endwhile; wp_reset_postdata(); ?>
