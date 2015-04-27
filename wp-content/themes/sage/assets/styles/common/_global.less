@@ -24,14 +24,31 @@ html {
 }
 h1, h2, h3, h4, h5 {
   font-weight: @font-medium;
-  color:@wet-asphalt;
+  color:@midnight-blue;
+}
+h1, h2 {
+  font-weight: @font-light;
+  letter-spacing:-1px;
+  margin:0 0 1.5em 0;
 }
 p, li {
   font-weight: @font-light;
   color:@wet-asphalt;
+
+}
+p {
+  margin:0 0 1.5em 0;
 }
 a:hover {
   text-decoration:none;
+}
+hr {
+  border:0;
+  color:#ddd;
+  height:1px;
+  background: #ddd; /* Old browsers */
+  clear:both;
+  margin:0;
 }
 .vertical-align-parent {
   -webkit-transform-style: preserve-3d;
@@ -49,4 +66,7 @@ a:hover {
   max-width:960px;
   margin-left:auto;
   margin-right:auto;
+}
+.section-padding {
+  padding:50px 0;
 }

@@ -9,6 +9,8 @@
  *
  * @link https://github.com/roots/sage/pull/1042
  */
+require_once locate_template('BFI_Thumb.php');
+
 $sage_includes = [
   'lib/utils.php',                 // Utility functions
   'lib/init.php',                  // Initial theme setup and constants
@@ -20,6 +22,7 @@ $sage_includes = [
   'lib/nav.php',                   // Custom nav modifications
   'lib/gallery.php',               // Custom [gallery] modifications
   'lib/extras.php',                // Custom functions
+  'lib/shortcodes.php',            // Custom shortcodes
 ];
 
 foreach ($sage_includes as $file) {

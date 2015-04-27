@@ -1,0 +1,68 @@
+.customer-logos {
+  padding:50px 0;
+}
+.homepage-logos .logo {
+  float:none;
+  display:inline-block;
+  margin-bottom:30px;
+}
+.homepage-logos .logo img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: .5;
+  -webkit-transition: opacity .25s;
+  -o-transition: opacity .25s;
+  transition: opacity .25s;
+
+}
+.homepage-logos .logo img:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  opacity: 1;
+}
+.cs-wrapper article {
+  margin:10px;
+  border:#ddd solid 1px;
+  box-shadow: 0 0 10px #ddd;
+}
+.cs-wrapper article img {
+  width:100%;
+}
+.cs-wrapper article h4 {
+  padding:15px;
+}
+.cs-wrapper article h4 a {
+  color:#34495e;
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px){
+  .cs-wrapper {
+    width:25%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px){
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px){
+  .cs-wrapper {
+    width:33.3%;
+  } 
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px){
+  .cs-wrapper {
+    width:50%;
+  } 
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px){
+   .cs-wrapper {
+    width:100%;
+  } 
+}

@@ -1,4 +1,4 @@
-.home-page-hero {
+.homepage-hero {
 	background-image:url(../images/london.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -9,39 +9,63 @@
 	color:#fff;
 	margin-top:-60px;
 	.vertical-align-parent();
-	padding:60px 0;
 }
-.home-page-hero .container{
+.homepage-hero .wrapper {
 	.narrow-content();
 	.vertical-align();
+	padding:0 30px;
+	box-sizing:border-box;
 }
-.home-page-hero h1 {
-	font-weight:@font-bold;
-	letter-spacing:-1px;
-	margin:0 0 50px 0;
-	font-size:40px;
-	color:@inverse;
-}
-.home-page-hero article {
-	background-color:@inverse;
-	padding:30px;
-	height:250px;
-	position:relative;
-}
-.home-page-hero article h2 {
-	margin-top:0;
-}
-.home-page-hero article .btn {
-	position:absolute;
-	bottom:30px;
-	left:30px;
-}
-.home-page-hero .down-arrow {
+.homepage-hero .down-arrow {
 	position:absolute;
 	bottom:40px;
 	left:0;
 	width:100%;
 }
-.home-page-hero .fa-chevron-down {
+.homepage-hero .fa-chevron-down {
 	font-size:40px;
+}
+.homepage-hero h1 {
+	font-weight:@font-bold;
+	font-size:40px;
+	color:@inverse;
+}
+.homepage-hero article {
+	background-color:@inverse;
+	padding:30px;
+	height:250px;
+	position:relative;
+}
+.homepage-hero article h2 {
+	margin-bottom:10px;
+	margin-top:-60px;
+	background-image:url(../images/logo-icon.svg);
+	background-repeat:no-repeat;
+	background-position:top center;
+	background-size:60px 60px;
+	padding-top:80px;
+}
+
+.homepage-hero article .btn-wrapper {
+	position:absolute;
+	bottom:30px;
+	left:0px;
+	width:100%;
+}
+.homepage-apps {
+	background-color:@clouds;
+	padding:50px 0;
+}
+.homepage-apps h2 {
+	margin-bottom:10px;
+}
+@media (min-width: @screen-sm) {
+  .cs-wrapper {
+    width:33.3%;
+  }
+}
+@media (min-width: @screen-md) {
+  .cs-wrapper {
+    width:25%;
+  }
 }
