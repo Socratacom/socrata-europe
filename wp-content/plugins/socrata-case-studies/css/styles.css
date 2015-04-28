@@ -20,49 +20,193 @@
   filter: grayscale(0%);
   opacity: 1;
 }
-.cs-wrapper article {
-  margin:10px;
-  border:#ddd solid 1px;
-  box-shadow: 0 0 10px #ddd;
+
+.case-study .hero {
+  height:300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
-.cs-wrapper article img {
-  width:100%;
+.case-study .content-wrapper {
+  padding:50px 0;
 }
-.cs-wrapper article h4 {
+.case-study .img-attribution {
+  font-size: 12px;
+  text-align: right;
   padding:15px;
 }
-.cs-wrapper article h4 a {
-  color:#34495e;
-}
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px){
-  .cs-wrapper {
-    width:25%;
-  }
+.case-study .screen-shot {
+  margin-bottom:1.5em;
 }
 
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px){
-
+.case-study blockquote.bubble {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  background: #FFFFFF;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border: #bdc3c7 solid 3px;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: normal;
+  padding: 15px;
 }
 
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px){
-  .cs-wrapper {
-    width:33.3%;
-  } 
+.case-study blockquote.bubble:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 10px 10px 0;
+  border-color: #FFFFFF transparent !important;
+  display: block;
+  width: 0;
+  z-index: 10;
+  bottom: -10px;
+  left: 13px;
+}
+
+.case-study blockquote.bubble:before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 12px 12px 0;
+  border-color: #bdc3c7 transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+  bottom: -15px;
+  left: 11px;
+}
+.case-study ul.quote-author {
+  list-style-type: none;
+  margin:0 0 1.5em 0;
+  padding: 0;
+  position: relative;
+  display: table;
+}
+.case-study .quote-author li {
+  margin:0;
+  padding: 0;
+  vertical-align: middle;
+  font-size: 13px;
+  display: table-cell;
+}
+.case-study .quote-author li:first-child {
+  vertical-align: top;
+  text-align: center;  
+}
+.case-study .quote-author li:last-child {
+  padding-left: 10px;
+}
+.case-study .quote-author .avatar {
+  background:#bdc3c7;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.case-study .quote-author .fa-user {
+  color:#fff;
+  font-size: 24px;
+  padding-top:10px;
+}
+.case-study .logo-wrapper {
+  text-align: center;
+}
+.atss {
+  top:75px !important;
+}
+.single-case_study h1.title {
+  margin-bottom:10px;
+}
+.single-case_study .meta {
+  margin-bottom:1.5em;
+}
+.case-study .prev-next-posts {
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+.case-study .item{
+  width:33.3%;
+  display:none;
+}
+.case-study .item .wrapper {
+  border:#ddd solid 1px;
+  margin:10px;
+  box-shadow: 0 0 10px #e1e1e1;
+}
+.case-study .item h3 {
+  font-size: 18px;
+  margin:0;
+  font-weight: 300;
+  line-height: 1.2em;
+}
+.case-study .item h3 a {
+  color:#222;
+}
+.case-study .article-title {
+  padding:20px;
+}
+.case-study .article-title small {
+  font-size:11px;
+  text-transform: uppercase;
+  color: #95a5a6;
+}
+.case-study .articles {
+  position:relative;
+  padding-bottom:50px;
+}
+.case-study .pagination-container {
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align: center;
+}
+
+.case-study .pagination {
+  margin:0 !important;
+}
+.case-study .pagination span,
+.case-study .pagination a {
+  display: inline-block;
+  padding: 2px 10px;
+}
+.case-study .pagination a {
+  background-color: #ebebeb;
+  color: #ff3c50;
+}
+.case-study .pagination a:hover {
+  background-color: #ff3c50;
+  color: #fff;
+}
+.case-study .pagination span.page-num {
+  margin-right: 10px;
+  padding: 0;
+}
+.case-study .pagination span.dots {
+  padding: 0;
+  color: gainsboro;
+}
+.case-study .pagination span.current {
+  background-color: #ff3c50;
+  color: #fff;
 }
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px){
-  .cs-wrapper {
+@media only screen and (max-width : 760px){
+  .case-study .item {
     width:50%;
   } 
 }
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px){
-   .cs-wrapper {
+   .case-study .item {
     width:100%;
   } 
 }

@@ -23,12 +23,12 @@ $fields = array(
 	),
 	array( // Image ID field
 		'label'	=> 'Logo', // <label>
-		'desc'	=> 'Image size should be 300x300 pixels.', // description
+		'desc'	=> 'Image size should be larger than 300px.', // description
 		'id'	=> $prefix.'logo', // field id and name
 		'type'	=> 'image' // type of field
 	),
 	array(
-		'label'=> 'Pull Quote',
+		'label'=> 'Quote',
 		'desc'	=> 'DO NOT use quote marks',
 		'id'	=> $prefix.'pull_quote',
 		'type'	=> 'textarea'
@@ -39,6 +39,12 @@ $fields = array(
 		'id'	=> $prefix.'author',
 		'type'	=> 'text'
 	),
+	array( // Image ID field
+		'label'	=> 'Author Headshot', // <label>
+		'desc'	=> 'Image size should be larger than 50px.', // description
+		'id'	=> $prefix.'headshot', // field id and name
+		'type'	=> 'image' // type of field
+	),
 	array(
 	    'label' => 'Content',
 	    'desc'  => '',
@@ -48,6 +54,24 @@ $fields = array(
 	    'settings' => array(
 	        'textarea_name' => 'editorField'
 	    )
+	),
+	array( // Image ID field
+		'label'	=> 'Screen Shot', // <label>
+		'desc'	=> 'Image size should be larger than 300px.', // description
+		'id'	=> $prefix.'screen_shot_one', // field id and name
+		'type'	=> 'image' // type of field
+	),
+	array( // Image ID field
+		'label'	=> 'Screen Shot', // <label>
+		'desc'	=> 'Image size should be larger than 300px.', // description
+		'id'	=> $prefix.'screen_shot_two', // field id and name
+		'type'	=> 'image' // type of field
+	),
+	array( // Image ID field
+		'label'	=> 'Screen Shot', // <label>
+		'desc'	=> 'Image size should be larger than 300px.', // description
+		'id'	=> $prefix.'screen_shot_three', // field id and name
+		'type'	=> 'image' // type of field
 	),
 );
 
@@ -62,6 +86,10 @@ function get_case_study_meta() {
 	$case_study_author = get_post_meta($post->ID, 'case_study_author', true); //4
 	$editorField = get_post_meta($post->ID, 'editorField', true); // 5 
 	$case_study_logo = get_post_meta($post->ID, 'case_study_logo', true); //6
+	$case_study_headshot = get_post_meta($post->ID, 'case_study_headshot', true); //7
+	$case_study_screen_shot_one = get_post_meta($post->ID, 'case_study_screen_shot_one', true); //8
+	$case_study_screen_shot_two = get_post_meta($post->ID, 'case_study_screen_shot_two', true); //9
+	$case_study_screen_shot_three = get_post_meta($post->ID, 'case_study_screen_shot_three', true); //10
 
   return array(
   	$case_study_banner_title,
@@ -71,6 +99,10 @@ function get_case_study_meta() {
   	$case_study_author,
   	$editorField,
   	$case_study_logo,
+  	$case_study_headshot,
+  	$case_study_screen_shot_one,
+  	$case_study_screen_shot_two,
+  	$case_study_screen_shot_three,
   );
 }
 

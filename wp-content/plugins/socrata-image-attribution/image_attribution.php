@@ -24,8 +24,6 @@ function add_attribution_meta_box() {
 }
 add_action('add_meta_boxes', 'add_attribution_meta_box');
 
-
-
 // Field Array
 $prefix = 'custom_';
 $custom_attribution_meta_fields = array(
@@ -88,7 +86,6 @@ function save_attribution_meta($post_id) {
   }
   // loop through fields and save the data
   foreach ($custom_attribution_meta_fields as $field) {
-
     $old = get_post_meta($post_id, $field['id'], true);
     $new = $_POST[$field['id']];
     if ($new && $new != $old) {

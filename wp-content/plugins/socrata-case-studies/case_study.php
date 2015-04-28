@@ -110,7 +110,7 @@ break;
 }
 
 // Body Classes for Styling 
-add_filter('thesis_body_classes', 'case_study_styling');
+add_filter('body_class', 'case_study_styling');
 function case_study_styling($classes) {
   if ('case_study' == get_post_type() && is_archive() || 'case_study' == get_post_type() && is_single() || is_page('case-studies')) { 
     $classes[] = 'case-study'; 
@@ -128,8 +128,10 @@ function case_study_enqeues() {
 add_action('wp_enqueue_scripts', 'case_study_enqeues');
 
 function case_study_landing_enqeues() {
-  if ( is_page('case-studies') ) {    
+  if ( is_page('case-studies') ) {
     wp_enqueue_script('masonry');
+    wp_register_script( 'masonry-fire', plugins_url( 'js/masonry-fire.js' , __FILE__ ), array( 'jquery' ), false, null, true );
+    wp_enqueue_script('masonry-fire');
   } 
 }
 add_action('wp_enqueue_scripts', 'case_study_landing_enqeues');
@@ -160,13 +162,95 @@ function case_study_hero( $thumb_size, $image_width, $image_height ) {
   return $custom_img_src;   
 }
 
-function case_study_logo( $thumb_size, $image_width, $grayscale ) { 
+function case_study_logo( $thumb_size, $image_width ) { 
   global $post; 
   $params = array( 'width' => $image_width );
   $meta = get_case_study_meta();  
   $imgsrc = wp_get_attachment_image_src( $meta[6], $thumb_size );
   $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
   return $custom_img_src;   
+}
+
+function case_study_screen_one( $thumb_size, $image_width ) { 
+  global $post; 
+  $params = array( 'width' => $image_width );
+  $meta = get_case_study_meta();  
+  $imgsrc = wp_get_attachment_image_src($meta[8], $thumb_size );
+  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
+  return $custom_img_src;   
+}
+
+function case_study_screen_two( $thumb_size, $image_width ) { 
+  global $post; 
+  $params = array( 'width' => $image_width );
+  $meta = get_case_study_meta();  
+  $imgsrc = wp_get_attachment_image_src ($meta[9], $thumb_size );
+  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
+  return $custom_img_src;   
+}
+
+function case_study_screen_three( $thumb_size, $image_width ) { 
+  global $post; 
+  $params = array( 'width' => $image_width );
+  $meta = get_case_study_meta();  
+  $imgsrc = wp_get_attachment_image_src($meta[10], $thumb_size );
+  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
+  return $custom_img_src;   
+}
+
+function case_study_thumbnail( $thumb_size, $image_width, $image_height) { 
+  global $post; 
+  $params = array( 'width' => $image_width, 'height' => $image_height );   
+  $meta = get_case_study_meta();  
+  $imgsrc = wp_get_attachment_image_src($meta[7], $thumb_size );
+  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
+  return $custom_img_src;   
+}
+
+// Pagination
+function custom_pagination($numpages = '', $pagerange = '', $paged='') {
+
+  if (empty($pagerange)) {
+    $pagerange = 2;
+  }
+
+  global $paged;
+  if (empty($paged)) {
+    $paged = 1;
+  }
+  if ($numpages == '') {
+    global $wp_query;
+    $numpages = $wp_query->max_num_pages;
+    if(!$numpages) {
+        $numpages = 1;
+    }
+  }
+
+  $pagination_args = array(
+    'base'            => get_pagenum_link(1) . '%_%',
+    'format'          => 'page/%#%',
+    'total'           => $numpages,
+    'current'         => $paged,
+    'show_all'        => False,
+    'end_size'        => 1,
+    'mid_size'        => $pagerange,
+    'prev_next'       => True,
+    'prev_text'       => __('<i class="fa fa-chevron-left"></i>'),
+    'next_text'       => __('<i class="fa fa-chevron-right"></i>'),
+    'type'            => 'plain',
+    'add_args'        => false,
+    'add_fragment'    => ''
+  );
+
+  $paginate_links = paginate_links($pagination_args);
+
+  if ($paginate_links) {
+    echo "<div class='pagination-container'><nav class='pagination'>";
+      echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
+      echo $paginate_links;
+    echo "</nav></div>";
+  }
+
 }
 
 // Shortcode [homepage-logos]
@@ -192,19 +276,45 @@ return $content;
 }
 
 // Shortcode [case-studies]
-add_shortcode('case-studies','case_studies_shortcode');
-function case_studies_shortcode($atts, $content = null) { ob_start(); ?>
-  <section class="section-padding">
+add_shortcode('case-studies','case_study_shortcode');
+function case_study_shortcode($atts, $content = null) { ob_start(); ?>
+  <?php
+  // set up or arguments for our custom query
+  $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+  $query_args = array(
+  'post_type' => 'case_study',
+  'posts_per_page' => 20,
+  'paged' => $paged
+  );
+  // create a new instance of WP_Query
+  $the_query = new WP_Query( $query_args );
+  ?>
+  <section class="content-wrapper">
     <div class="container">
-      <div id="container" class="js-masonry" data-masonry-options='{ "columnWidth": 0, "itemSelector": ".cs-wrapper" }'>
-        <?php $query = new WP_Query('post_type=case_study'); while ($query->have_posts()) : $query->the_post(); ?>
-          <div class="cs-wrapper">
-            <article>
-              <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_hero('full', 255, 150 ); ?>" class="img-responsive"></a>
-              <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-            </article>
+      <div id="container" class="articles">
+      <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); // run the loop ?>
+        <article class="item">
+          <div class="wrapper">
+            <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_hero ('full', 255, 150 ); ?>" class="img-responsive" style="width:100%;"></a>
+            <div class="article-title">
+              <?php $terms = get_the_terms( $post->ID , 'case_study_product' );
+              foreach ( $terms as $term ) { echo '<small>' . $term->name . '</small> '; }; ?>
+              <h3><a href="<?php the_permalink() ?>"><?php echo the_title(); ?></a></h3>
+            </div>
           </div>
-        <?php endwhile; wp_reset_postdata(); ?>
+        </article>
+        <?php endwhile; ?>
+        <?php
+          if (function_exists(custom_pagination)) {
+            custom_pagination($the_query->max_num_pages,"",$paged);
+          }
+        ?>
+        <?php else: ?>
+        <article>
+          <h1>Sorry...</h1>
+          <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+        </article>
+      <?php endif; ?>
       </div>
     </div>
   </section>
@@ -213,5 +323,7 @@ $content = ob_get_contents();
 ob_end_clean();
 return $content;
 }
+
+
 
 
