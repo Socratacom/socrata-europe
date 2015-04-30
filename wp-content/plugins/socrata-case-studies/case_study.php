@@ -275,6 +275,46 @@ ob_end_clean();
 return $content;
 }
 
+// [logos category="TAXONOMY-SLUG"]
+add_shortcode('logos','logos_shortcode');
+
+function logos_shortcode( $atts ) {
+  ob_start();
+  extract( shortcode_atts( array (
+    'type' => 'case_study',
+    'taxonomy' => 'case_study_product',
+    'category' => '',
+    'orderby' => 'date',
+    'order' => 'desc',
+    'posts' => 5,
+    ), $atts ) );
+    $options = array(
+    'post_type' => $type,
+    'taxonomy' => $taxonomy,
+    'term' => $category,
+    'orderby' => $orderby,
+    'order' => $order,
+    'posts_per_page' => $posts,
+  );
+  $query = new WP_Query( $options );
+  if ( $query->have_posts() ) { ?>
+  <section class="customer-logos homepage-logos">
+    <div class="container">
+      <div class="row text-center">
+      <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+        <div class="col-xs-12 col-sm-2 logo">
+          <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_logo('full', 100); ?>"></a>
+        </div>
+      <?php endwhile; wp_reset_postdata(); ?>
+      </div>
+    </div>
+  </section>
+  <?php wp_enqueue_style( 'case_study_styles' ); ?>
+  <?php $content = ob_get_clean();
+  return $content;
+  } 
+}
+
 // Shortcode [case-studies]
 add_shortcode('case-studies','case_study_shortcode');
 function case_study_shortcode($atts, $content = null) { ob_start(); ?>

@@ -58,11 +58,13 @@
 .homepage-apps h2 {
 	margin-bottom:10px;
 }
+section > .container {	
+	padding-top:50px;
+	padding-bottom:50px;
+}
 .page-hero .container {
 	height:300px;
 	text-align:center;
-	padding-top:50px;
-	padding-bottom:50px;
 }
 .page-hero h1 {
 	margin:0;
@@ -72,10 +74,24 @@
   top: 50%;
   transform: translateY(-50%);
 }
+.case-study-hero {
+	background-image:url(../images/case-study.png);
+  	background-repeat: no-repeat;
+	background-position: center;
+}
+.wet-asphalt {
+	background-color:@wet-asphalt;	
+}
+.clouds {
+	background-color:@clouds;	
+}
+.belize-hole {
+	background-color:@belize-hole;	
+}
 .pomegranate {
 	background-color:@pomegranate;	
 }
-.pomegranate * {
+.pomegranate *, .belize-hole *, .wet-asphalt * {
 	color:white
 }
 
