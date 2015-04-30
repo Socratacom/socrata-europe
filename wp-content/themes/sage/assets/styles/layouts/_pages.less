@@ -13,7 +13,6 @@
 .homepage-hero .wrapper {
 	.narrow-content();
 	.vertical-align();
-	padding:0 30px;
 	box-sizing:border-box;
 }
 .homepage-hero .down-arrow {
@@ -29,6 +28,7 @@
 	font-weight:@font-bold;
 	font-size:40px;
 	color:@inverse;
+	margin-bottom:60px;
 }
 .homepage-hero article {
 	background-color:@inverse;
@@ -61,7 +61,85 @@
 section > .container {	
 	padding-top:50px;
 	padding-bottom:50px;
+	box-sizing:border-box;
 }
+
+/* Quote */
+
+.quote blockquote.bubble {
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	border-bottom: #bdc3c7 solid 3px;
+	box-sizing: border-box;
+	font-weight: 300;
+	line-height: normal;
+	padding: 15px;
+}
+
+.quote blockquote.bubble:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 10px 10px 0;
+  border-color: @clouds transparent !important;
+  display: block;
+  width: 0;
+  z-index: 10;
+  bottom: -10px;
+  left: 30px;
+}
+
+.quote blockquote.bubble:before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 12px 12px 0;
+  border-color: @silver transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+  bottom: -15px;
+  left: 28px;
+}
+.quote blockquote p:before {
+	color: @silver;
+	content: open-quote;
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+	font-family: Georgia;
+	font-style:italic;
+}
+.quote ul.quote-author {
+  list-style-type: none;
+  margin:0 0 0 20px;
+  padding: 0;
+  position: relative;
+  display: table;
+}
+.quote .quote-author li {
+  margin:0;
+  padding: 0;
+  vertical-align: middle;
+  font-size: 13px;
+  display: table-cell;
+}
+.quote .quote-author li:first-child {
+  vertical-align: top;
+  text-align: center;  
+}
+.quote .quote-author li:last-child {
+  padding-left: 15px;
+}
+
+/* Section Heros */
+
 .page-hero .container {
 	height:300px;
 	text-align:center;
@@ -74,10 +152,17 @@ section > .container {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .case-study-hero {
 	background-image:url(../images/case-study.png);
   	background-repeat: no-repeat;
 	background-position: center;
+}
+
+/* Section colors */
+
+.green-sea {
+	background-color:@green-sea;
 }
 .wet-asphalt {
 	background-color:@wet-asphalt;	
@@ -91,7 +176,16 @@ section > .container {
 .pomegranate {
 	background-color:@pomegranate;	
 }
-.pomegranate *, .belize-hole *, .wet-asphalt * {
+.pomegranate *, .belize-hole *, .wet-asphalt *, .green-sea * {
 	color:white
 }
+
+/* Features */
+
+.feature {
+	height:400px;
+}
+
+
+
 

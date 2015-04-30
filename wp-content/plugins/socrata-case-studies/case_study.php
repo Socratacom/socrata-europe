@@ -298,17 +298,13 @@ function logos_shortcode( $atts ) {
   );
   $query = new WP_Query( $options );
   if ( $query->have_posts() ) { ?>
-  <section class="customer-logos homepage-logos">
-    <div class="container">
-      <div class="row text-center">
-      <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-        <div class="col-xs-12 col-sm-2 logo">
-          <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_logo('full', 100); ?>"></a>
-        </div>
-      <?php endwhile; wp_reset_postdata(); ?>
+  <div class="customer-logos text-center">     
+    <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+      <div class="col-xs-12 col-sm-2 logo">
+        <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_logo('full', 100); ?>"></a>
       </div>
-    </div>
-  </section>
+    <?php endwhile; wp_reset_postdata(); ?>
+  </div>
   <?php wp_enqueue_style( 'case_study_styles' ); ?>
   <?php $content = ob_get_clean();
   return $content;
@@ -329,7 +325,7 @@ function case_study_shortcode($atts, $content = null) { ob_start(); ?>
   // create a new instance of WP_Query
   $the_query = new WP_Query( $query_args );
   ?>
-  <section class="content-wrapper">
+  <section class="clouds">
     <div class="container">
       <div id="container" class="articles">
       <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); // run the loop ?>

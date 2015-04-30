@@ -28,10 +28,7 @@ h1, h2 {
   font-weight: @font-light;
   letter-spacing:-1px;
 }
-h1 {
-  margin:0 0 1.5em 0;
-}
-h2 {
+h1, h2 {
   margin:0 0 1em 0;
 }
 p, li {
@@ -73,3 +70,9 @@ hr {
 .section-padding {
   padding:50px 0;
 }
+
+@media(@xs)  {
+       .text-right {
+       text-align:left;
+       }
+    }

@@ -1,12 +1,11 @@
 .customer-logos {
-  padding:50px 0;
+  padding:30px 0;
 }
-.homepage-logos .logo {
+.customer-logos .logo {
   float:none;
   display:inline-block;
-  margin-bottom:30px;
 }
-.homepage-logos .logo img {
+.customer-logos .logo img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   opacity: .5;
@@ -15,21 +14,18 @@
   transition: opacity .25s;
 
 }
-.homepage-logos .logo img:hover {
+.customer-logos .logo img:hover {
   -webkit-filter: grayscale(0%);
   filter: grayscale(0%);
   opacity: 1;
 }
-
 .case-study .hero {
   height:300px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
-.case-study .content-wrapper {
-  padding:50px 0;
-}
+
 .case-study .img-attribution {
   font-size: 12px;
   text-align: right;
@@ -38,7 +34,6 @@
 .case-study .screen-shot {
   margin-bottom:1.5em;
 }
-
 .case-study blockquote.bubble {
   position: relative;
   width: 100%;
@@ -130,14 +125,17 @@
   bottom:0;
   left:0;
 }
+.case-study .content-wrapper {
+  padding: 50px 0;
+}
 .case-study .item{
   width:33.3%;
   display:none;
 }
 .case-study .item .wrapper {
-  border:#ddd solid 1px;
+  border:#e1e1e1 solid 1px;
   margin:10px;
-  box-shadow: 0 0 10px #e1e1e1;
+  background:white;
 }
 .case-study .item h3 {
   font-size: 18px;
@@ -201,7 +199,10 @@
 @media only screen and (max-width : 760px){
   .case-study .item {
     width:50%;
-  } 
+  }
+  .customer-logos .logo {
+    margin-bottom:30px;
+  }
 }
 
 /* Custom, iPhone Retina */
