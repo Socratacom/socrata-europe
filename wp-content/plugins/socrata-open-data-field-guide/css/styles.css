@@ -8,10 +8,13 @@
 .guide #content p {
   line-height: normal;
 }
+
+
 .guide .guide-sidebar ul.menu {
   list-style-type: none;
   margin:0;
   padding: 0;
+  background:#ecf0f1;
 }
 .guide .guide-sidebar .menu a {
   padding: 0;
@@ -21,34 +24,47 @@
   padding:0;
   line-height: normal;
   position: relative;
+
 }
 .guide .guide-sidebar .menu li:hover {
-  background:#ECF0F1;
+  background:#95a5a6;
 }
 .guide .guide-sidebar .menu li:first-child {
   border-top:#e3e3e3 solid 1px;
 }
-.guide .guide-sidebar .menu li::before {
+/*.guide .guide-sidebar .menu li::before {
   content: "\f02e";
   font-family:FontAwesome;  
   position: absolute;
   left:8px;
   top:11px;
   color:#C0392B;
-}
+}*/
 .guide .guide-sidebar .menu a {  
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  padding: 8px 8px 8px 25px;
+  padding: 10px 15px;
   display: block;
 }
 .guide .guide-sidebar .menu a:hover {
-  color:#2980B9;
+  color:white;
 }
 .guide .guide-sidebar h4 {
   text-transform: uppercase;
-  padding-bottom: 20px;
+  background:#34495e;
+  color:white;
+  margin:0;
+  padding:15px;
+  font-size:13px;
+  letter-spacing: 1px;
 }
+
+
+
+
+
+
+
 .guide .addthis_toolbox {
   position: relative !important;
 }
