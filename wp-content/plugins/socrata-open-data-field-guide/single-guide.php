@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="col-sm-9 col-md-8">
 			<?php while (have_posts()) : the_post(); ?>
+			<?php $meta = get_guide_meta(); if ($meta[0]) echo "<div class='chapter-text'>$meta[0]</div>"; ?>
 			<h1><?php the_title(); ?></h1>
 			<?php the_content()?>
 			<?php endwhile; ?>
