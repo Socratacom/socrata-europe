@@ -1,20 +1,7 @@
-.guide h1 {
-  font-size: 32px;
-  font-weight: 300;
-  margin-bottom: 30px;
+.single-guide main > .container {
+  padding-top:50px;
 }
-.guide #content h2 {
-  font-size: 28px;
-  font-weight: 300;
-  margin-bottom: 30px;
-}
-.guide #content h3 {
-  font-size: 20px;
-  font-weight: 400;
-}
-.guide #content h5 {
-  font-size: 18px;
-}
+
 .guide #content section {
   padding:60px 0 0 0;
 }
