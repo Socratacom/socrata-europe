@@ -10,11 +10,7 @@
 	margin-top:-60px;
 	.vertical-align-parent();
 }
-.homepage-hero .wrapper {
-	.narrow-content();
-	.vertical-align();
-	box-sizing:border-box;
-}
+
 .homepage-hero .down-arrow {
 	position:absolute;
 	bottom:40px;
@@ -28,22 +24,17 @@
 	font-weight:@font-bold;
 	font-size:40px;
 	color:@inverse;
-	margin-bottom:60px;
+	margin-bottom:50px;
 }
 .homepage-hero article {
-	background-color:@inverse;
+	background-color: rgba(255,255,255,.8);
 	padding:30px;
 	height:250px;
 	position:relative;
+	border:#fff solid 5px;
 }
 .homepage-hero article h2 {
 	margin-bottom:10px;
-	margin-top:-60px;
-	background-image:url(../images/logo-icon.svg);
-	background-repeat:no-repeat;
-	background-position:top center;
-	background-size:60px 60px;
-	padding-top:80px;
 }
 .homepage-hero article .btn-wrapper {
 	position:absolute;
@@ -78,7 +69,7 @@ section > .container {
 	box-sizing: border-box;
 	font-weight: 300;
 	line-height: normal;
-	padding: 15px;
+	padding: 15px 30px;
 }
 
 .quote blockquote.bubble:after {
@@ -106,15 +97,14 @@ section > .container {
   bottom: -15px;
   left: 28px;
 }
+
 .quote blockquote p:before {
-	color: @silver;
-	content: open-quote;
-	font-size: 4em;
-	line-height: 0.1em;
-	margin-right: 0.25em;
-	vertical-align: -0.4em;
-	font-family: Georgia;
-	font-style:italic;
+  content: "\f10d";
+  font-family:FontAwesome;  
+  position: absolute;
+  left:0px;
+  top:15px;
+  color:@silver;
 }
 .quote ul.quote-author {
   list-style-type: none;
@@ -154,10 +144,26 @@ section > .container {
 }
 
 .case-study-hero {
-	background-image:url(../images/case-study.png);
-  	background-repeat: no-repeat;
+	background-image:url(../images/case-study-hero.png);
+  	background-repeat: repeat-x;
+  	background-position: center;
+}
+.open-data-hero {
+	background-image:url(../images/open-data-hero.png);
+  	background-repeat: repeat;
 	background-position: center;
 }
+.open-performance-hero {
+	background-image:url(../images/open-performance-hero.png);
+  	background-repeat: repeat-x;
+  	background-position: center;
+}
+.open-data-guide-hero {
+	background-image:url(../images/open-data-guide-hero.png);
+  	background-repeat: repeat-x;
+  	background-position: center;
+}
+
 
 /* Section colors */
 
@@ -176,7 +182,10 @@ section > .container {
 .pomegranate {
 	background-color:@pomegranate;	
 }
-.pomegranate *, .belize-hole *, .wet-asphalt *, .green-sea * {
+.midnight-blue {
+	background-color:@midnight-blue;	
+}
+.pomegranate *, .belize-hole *, .wet-asphalt *, .green-sea *, .midnight-blue * {
 	color:white
 }
 
@@ -186,6 +195,91 @@ section > .container {
 	height:400px;
 }
 
+	.newsletter {
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 0;
+		font-weight: 300;
+		line-height: 1.5;
+		h2 {
+			font-size: 2.5em;
+			font-weight: 300;
+			margin-bottom: 8px;
+		}
+		h3 {
+			font-weight: 300;
+			font-size: 1.6em;
+			margin: 0 0 25px;
+		}
+		p {
+			strong {
+				text-transform: uppercase;
+				font-weight: 300;
+				letter-spacing: 6px;
+			}
+		}
+    // used !important to get around Marketo in-line styles
+    form {
+      width: 100% !important;
+      height:205px;
+      overflow:hidden;
+      position:relative;
+      padding:0 !important;
+      .mktoFormRow {
+      	margin-bottom:10px !important;
+        .mktoFormCol, .mktoFieldWrap {
+          width: 100%;
+          margin-bottom: 0 !important;
+        }
+        .mktoOffset, label {
+          display: none;
+        }
+        .mktoGutter {
+          width: 0px !important;
+        }
+        input {
+          width: 100% !important;
+          border: none !important;
+          padding: 10px;
+          margin-top: 0px;
+          border-radius:0 !important;
+          box-shadow: none !important;
+          height:33px !important;
+          line-height:normal;
+          font-size:13px !important;
+        }
+        input#Title {
+          width: 50% !important;
+        }
+      }
+      .mktoButtonRow {
+        position: absolute;
+        right: 0px;
+        width: 42%;
+        bottom: 0px;
+        .mktoButtonWrap {
+          margin-left: 0 !important;          
+          button {
+            border: none !important;
+            background-image: none !important;
+            box-shadow: none;
+            width: 100%;
+            padding: 0 !important;
+            background-color: #e19c46;
+            border-radius:0 !important;
+            height:33px !important;
+            &:hover {
+              border: none;
+              background-color: darken(#e19c46, 10%);
+            }
+          }
+        }
+      }
+    }
+	}
 
-
-
+@media(@sm)  {
+	.homepage-hero article p {
+		font-size:14px;
+	}
+}
