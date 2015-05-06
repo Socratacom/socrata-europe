@@ -84,3 +84,14 @@
 .guide blockquote li {
   line-height: normal;
 }
+.table-of-contents h3 {
+  font-weight: 300;
+  margin-top:0;
+}
+.table-of-contents article {
+  border-bottom:#bdc3c7 solid 1px;
+  margin-bottom:30px;
+}
+.atss {
+  top:75px !important;
+}

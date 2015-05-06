@@ -76,11 +76,9 @@ function register_odfg_menu() {
 
 // ENQEUE SCRIPTS
 function guide_script_loading() {
-  if ( 'guide' == get_post_type() && is_single() || 'guide' == get_post_type() && is_archive() || is_page('open-data-field-guide') ) {
+  if ( 'guide' == get_post_type() && is_single() || 'guide' == get_post_type() && is_archive() || is_page('open-data-guide') ) {
     wp_register_style( 'odfg_styles', plugins_url( 'css/styles.css' , __FILE__ ), false, null );
     wp_enqueue_style( 'odfg_styles' );
-    wp_register_script('jumplinks', plugins_url( 'js/jumplinks.js' , __FILE__ ), false, null, true);
-    wp_enqueue_script('jumplinks');
   } 
 }
 add_action('wp_enqueue_scripts', 'guide_script_loading');
@@ -112,22 +110,28 @@ function guide_single_template( $template_path ) {
   return $template_path;
 }
 
-// Shortcode [open-data-field-guide]
+
+
+// Shortcode [homepage-logos]
 add_shortcode('open-data-field-guide','guide_shortcode');
 function guide_shortcode($atts, $content = null) { ob_start(); ?>
-  <?php $query = new WP_Query('post_type=guide&orderby=title&order=asc&showposts=40'); ?>
-  <?php 
-    $count = 0;
-    while ($query->have_posts()) : $query->the_post();
-    $count++;
-    $third_div = ($count%3 == 0) ? 'last' : '';
-    $third_div_clear = ($count%3 == 0) ? '<div class="clearboth"></div>' : '';
-  ?>
+<section>
+  <div class="container">
+    <h2 class="text-center">Table of Contents</h2>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 table-of-contents">
+      <?php $query = new WP_Query('post_type=guide&orderby=date&order=desc&showposts=40'); while ($query->have_posts()) : $query->the_post(); ?>
+        <article>
+          <?php $meta = get_guide_meta(); if ($meta[0]) echo "<div class='chapter-text'>$meta[0]</div>"; ?>
+          <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+          <?php $meta = get_guide_meta(); if ($meta[1]) echo "<p>$meta[1]</p>"; ?>
+        </article>
+      <?php endwhile; wp_reset_postdata(); ?>
+      </div>
+    </div>
+  </div>
+</secion>
 
-<p><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-
-  <?php echo $third_div_clear; ?>  
-  <?php endwhile; wp_reset_postdata(); ?>
 <?php
 $content = ob_get_contents();
 ob_end_clean();
