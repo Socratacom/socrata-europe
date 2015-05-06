@@ -121,7 +121,8 @@ function case_study_styling($classes) {
 // ENQEUE SCRIPTS
 function case_study_enqeues() {
   wp_register_style( 'case_study_styles', plugins_url( 'css/styles.css' , __FILE__ ), false, null );
-  if ( 'case_study' == get_post_type() && is_single() || 'case_study' == get_post_type() && is_archive() || is_page('case-studies') ) {    
+
+  if ( 'case_study' == get_post_type() && is_single() || 'case_study' == get_post_type() && is_archive() || is_page(array('home','case-studies')) ) {    
     wp_enqueue_style( 'case_study_styles' );
   } 
 }
@@ -135,6 +136,21 @@ function case_study_landing_enqeues() {
   } 
 }
 add_action('wp_enqueue_scripts', 'case_study_landing_enqeues');
+
+function slider_enqeues() {
+  if ( is_page( array('home', 'open-data', 'open-performance')) ) {
+  wp_register_script( 'slider', '//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js', array( 'jquery' ), false, null, true);  
+  wp_enqueue_script( 'slider' );
+  wp_register_script( 'slider-settings', plugins_url( 'js/slick.js' , __FILE__ ), false, null, true );
+  wp_enqueue_script('slider-settings');
+  } 
+}
+add_action('wp_enqueue_scripts', 'slider_enqeues');
+
+
+
+
+
 
 // Single Template Path
 add_filter( 'template_include', 'case_study_single_template', 1 );
@@ -256,19 +272,21 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
 // Shortcode [homepage-logos]
 add_shortcode('homepage-logos','homepage_logos_shortcode');
 function homepage_logos_shortcode($atts, $content = null) { ob_start(); ?>
-  <section class="customer-logos homepage-logos">
-    <div class="container">
-      <h1 class="text-center">Customers Who Use Socrata</h1>
-      <div class="row text-center">
-      <?php $query = new WP_Query('post_type=case_study&showposts=5'); while ($query->have_posts()) : $query->the_post(); ?>
-        <div class="col-xs-12 col-sm-2 logo">
-          <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_logo('full', 100); ?>"></a>
+<section id="pagestart">
+  <div class="container">
+    <h1 class="text-center">Customers Who Use Socrata</h1>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 carousel">
+      <?php $query = new WP_Query('post_type=case_study&showposts=10'); while ($query->have_posts()) : $query->the_post(); ?>
+        <div>
+          <a href="<?php the_permalink() ?>"><img data-lazy="<?php echo case_study_logo('full', 100); ?>"></a>
         </div>
       <?php endwhile; wp_reset_postdata(); ?>
       </div>
     </div>
-  </section>
-  <?php wp_enqueue_style( 'case_study_styles' ); ?>
+  </div>
+</secion>
+
 <?php
 $content = ob_get_contents();
 ob_end_clean();
@@ -286,7 +304,7 @@ function logos_shortcode( $atts ) {
     'category' => '',
     'orderby' => 'date',
     'order' => 'desc',
-    'posts' => 5,
+    'posts' => 10,
     ), $atts ) );
     $options = array(
     'post_type' => $type,
@@ -298,12 +316,14 @@ function logos_shortcode( $atts ) {
   );
   $query = new WP_Query( $options );
   if ( $query->have_posts() ) { ?>
-  <div class="customer-logos text-center">     
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1 carousel">
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-      <div class="col-xs-12 col-sm-2 logo">
-        <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_logo('full', 100); ?>"></a>
+      <div>
+        <a href="<?php the_permalink() ?>"><img data-lazy="<?php echo case_study_logo('full', 100); ?>"></a>
       </div>
     <?php endwhile; wp_reset_postdata(); ?>
+    </div>
   </div>
   <?php wp_enqueue_style( 'case_study_styles' ); ?>
   <?php $content = ob_get_clean();

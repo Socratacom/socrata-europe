@@ -9,22 +9,29 @@
 	color:#fff;
 	margin-top:-60px;
 	.vertical-align-parent();
+  @media (max-width: @screen-xs-max) {
+    height: 100%;
+    margin-top:0;
+  }
 }
-
 .homepage-hero .down-arrow {
 	position:absolute;
-	bottom:40px;
+	bottom:30px;
 	left:0;
 	width:100%;
 }
 .homepage-hero .fa-chevron-down {
 	font-size:40px;
+  color:@inverse;
 }
 .homepage-hero h1 {
 	font-weight:@font-bold;
 	font-size:40px;
 	color:@inverse;
 	margin-bottom:50px;
+  @media (max-width: @screen-xs-max) {
+    font-size:32px;
+  }
 }
 .homepage-hero article {
 	background-color: rgba(255,255,255,.8);
@@ -32,6 +39,10 @@
 	height:250px;
 	position:relative;
 	border:#fff solid 5px;
+  @media (max-width: @screen-xs-max) {
+    height:auto;
+    margin-bottom:30px;
+  }
 }
 .homepage-hero article h2 {
 	margin-bottom:10px;
@@ -41,6 +52,10 @@
 	bottom:30px;
 	left:0px;
 	width:100%;
+  @media (max-width: @screen-xs-max) {
+    position:inherit;
+    bottom:0;
+  }
 }
 .homepage-apps {
 	background-color:@clouds;
@@ -48,11 +63,6 @@
 }
 .homepage-apps h2 {
 	margin-bottom:10px;
-}
-section > .container {	
-	padding-top:50px;
-	padding-bottom:50px;
-	box-sizing:border-box;
 }
 
 /* Quote */
