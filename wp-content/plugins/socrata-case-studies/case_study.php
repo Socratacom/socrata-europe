@@ -356,6 +356,13 @@ function case_study_shortcode($atts, $content = null) { ob_start(); ?>
               <?php $terms = get_the_terms( $post->ID , 'case_study_product' );
               foreach ( $terms as $term ) { echo '<small>' . $term->name . '</small> '; }; ?>
               <h3><a href="<?php the_permalink() ?>"><?php echo the_title(); ?></a></h3>
+              <?php $meta = get_case_study_meta(); if ($meta[6]) { ?>
+                <div>
+                  <img src="<?php echo case_study_logo('full', 32); ?>"> <small style="text-transform: none;"><?php echo "$meta[0]"; ?></small>
+                </div>
+                <?php
+                } 
+              ?>
             </div>
           </div>
         </article>

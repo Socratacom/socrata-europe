@@ -199,6 +199,53 @@
 	color:white
 }
 
+/* Contact Info */
+
+.contact-info h3 {
+  margin:0 0 20px 0;
+}
+.contact-info ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  
+}
+.contact-info li {
+  padding-left:30px;
+  line-height: 24px;
+  position:relative;
+}
+
+.contact-info li:first-child:before {
+  position: absolute;
+  font-family: 'FontAwesome';
+  top: 0px;
+  left: 0px;
+  content: "\f0e0";
+  font-size: 16px;
+}
+.contact-info li:last-child:after {
+  position: absolute;
+  font-family: 'FontAwesome';
+  top: 0px;
+  left: 2px;
+  content: "\f095";
+  font-size: 16px;
+}
+
+
+
+
+
+.rethink .bullets .chart:before {
+  position: absolute;
+  font-family: 'FontAwesome';
+  top: 25px;
+  left: 25px;
+  content: "\f201";
+  font-size: 32px;
+}
+
 /* Features */
 
 section.feature .container {
@@ -282,8 +329,6 @@ section.feature .row {
 
 
 	.newsletter {
-		background-repeat: no-repeat;
-		background-size: cover;
 		padding: 0;
 		font-weight: 300;
 		line-height: 1.5;
@@ -304,6 +349,7 @@ section.feature .row {
 				letter-spacing: 6px;
 			}
 		}
+
     // used !important to get around Marketo in-line styles
     form {
       width: 100% !important;
@@ -345,18 +391,19 @@ section.feature .row {
         bottom: 0px;
         .mktoButtonWrap {
           margin-left: 0 !important;          
-          button {
+          .mktoButton {
             border: none !important;
             background-image: none !important;
-            box-shadow: none;
-            width: 100%;
+            box-shadow: none !important;
+            width: 100% !important;
             padding: 0 !important;
-            background-color: #e19c46;
+            background-color: #e67e22 !important;
             border-radius:0 !important;
             height:33px !important;
+            color:#fff !important;
             &:hover {
-              border: none;
-              background-color: darken(#e19c46, 10%);
+              border: none !important;
+              background-color: darken(#e67e22, 10%) !important;
             }
           }
         }

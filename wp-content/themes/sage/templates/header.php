@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="white-logo header-logo" href="<?php echo home_url('/'); ?>"></a>
-      <a class="corporate-link hidden-xs" href="http://socrata.com"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Socrata.com</a>
+      <a class="corporate-link hidden-xs" href="http://socrata.com"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Socrata USA</a>
     </div>
 
     <nav class="collapse navbar-collapse" role="navigation">
