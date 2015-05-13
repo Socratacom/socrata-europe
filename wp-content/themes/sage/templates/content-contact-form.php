@@ -1,4 +1,4 @@
-<section id="demo-form" class="belize-hole newsletter">
+<section id="demo-form" class="belize-hole newsletter demo">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-5 col-sm-offset-1">
