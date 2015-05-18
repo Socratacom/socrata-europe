@@ -351,7 +351,7 @@ function case_study_shortcode($atts, $content = null) { ob_start(); ?>
       <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); // run the loop ?>
         <article class="item">
           <div class="wrapper">
-            <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_hero ('full', 255, 150 ); ?>" class="img-responsive" style="width:100%;"></a>
+            <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_hero ('full', 358, 210 ); ?>" class="img-responsive" style="width:100%;"></a>
             <div class="article-title">
               <?php $terms = get_the_terms( $post->ID , 'case_study_product' );
               foreach ( $terms as $term ) { echo '<small>' . $term->name . '</small> '; }; ?>
