@@ -37,7 +37,7 @@
 		<?php $meta = get_case_study_meta(); 
 			if ($meta[7]) { ?>
 				<li>
-					<img src="<?php echo case_study_thumbnail( 'full', 50, 50 ); ?>" class="img-responsive img-circle" >
+					<img src="<?php echo case_study_thumbnail( 'full', 50, 50 ); ?>" class="img-circle" >
 				</li>
 				<li><?php echo $meta[4]; ?></li>            	
 			<?php
