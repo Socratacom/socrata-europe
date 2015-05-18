@@ -279,7 +279,7 @@ function homepage_logos_shortcode($atts, $content = null) { ob_start(); ?>
       <div class="col-sm-10 col-sm-offset-1 carousel">
       <?php $query = new WP_Query('post_type=case_study&showposts=10'); while ($query->have_posts()) : $query->the_post(); ?>
         <div>
-          <a href="<?php the_permalink() ?>"><img data-lazy="<?php echo case_study_logo('full', 100); ?>"></a>
+          <a href="<?php the_permalink() ?>"><img data-lazy="<?php echo case_study_logo('full', 100); ?>" class="img-responsive"></a>
         </div>
       <?php endwhile; wp_reset_postdata(); ?>
       </div>
@@ -320,7 +320,7 @@ function logos_shortcode( $atts ) {
     <div class="col-sm-10 col-sm-offset-1 carousel">
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
       <div>
-        <a href="<?php the_permalink() ?>"><img data-lazy="<?php echo case_study_logo('full', 100); ?>"></a>
+        <a href="<?php the_permalink() ?>"><img data-lazy="<?php echo case_study_logo('full', 100); ?>" class="img-responsive"></a>
       </div>
     <?php endwhile; wp_reset_postdata(); ?>
     </div>
