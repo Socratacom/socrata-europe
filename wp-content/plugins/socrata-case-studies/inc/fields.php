@@ -2,7 +2,13 @@
 
 $prefix = 'case_study_';
 
-$fields = array(	
+$fields = array(
+    array( // Single checkbox
+        'label' => 'Logo Only', // <label>
+        'desc'  => 'This is just for adding a customer logo without Case Study content. IMPORTANT: You must include a "Logo" Image and a "URL" to the customers site', // description
+        'id'    => $prefix.'logo_only', // field id and name
+        'type'  => 'checkbox' // type of field
+    ),
 	array(
 		'label'=> 'Customer',
 		'desc'	=> 'Ex. City of Seattle',
@@ -11,13 +17,13 @@ $fields = array(
 	),
 	array(
 		'label'=> 'Site Name',
-		'desc'	=> 'Ex. Socrata.com',
+		'desc'	=> 'Ex. Data Seattle',
 		'id'	=> $prefix.'site_name',
 		'type'	=> 'text'
 	),
 	array(
 		'label'=> 'URL',
-		'desc'	=> 'Ex. http://www.socrata.com',
+		'desc'	=> 'IMPORTANT: include the http:// or https:// Ex. http://data.seattle.gov',
 		'id'	=> $prefix.'url',
 		'type'	=> 'text'
 	),
@@ -90,6 +96,7 @@ function get_case_study_meta() {
 	$case_study_screen_shot_one = get_post_meta($post->ID, 'case_study_screen_shot_one', true); //8
 	$case_study_screen_shot_two = get_post_meta($post->ID, 'case_study_screen_shot_two', true); //9
 	$case_study_screen_shot_three = get_post_meta($post->ID, 'case_study_screen_shot_three', true); //10
+    $case_study_logo_only = get_post_meta($post->ID, 'case_study_logo_only', true); //11
 
   return array(
   	$case_study_banner_title,
@@ -103,6 +110,7 @@ function get_case_study_meta() {
   	$case_study_screen_shot_one,
   	$case_study_screen_shot_two,
   	$case_study_screen_shot_three,
+    $case_study_logo_only
   );
 }
 

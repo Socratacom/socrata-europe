@@ -23,7 +23,7 @@
 				<div class="col-sm-6 col-md-5">
 					<article class="text-center">
 						<h2>Open Performance</h2>
-						<p>Socrata Open Performance is a dynamic performance management and analytics application designed exclusively for the government sector.</p>
+						<p>Socrata Open Performance is a dynamic performance management and communication application designed exclusively for the government sector.</p>
 						<div class="btn-wrapper"><a href="/open-performance" class="btn btn-success">Explore Open Performance</a></div>
 					</article>
 				</div>

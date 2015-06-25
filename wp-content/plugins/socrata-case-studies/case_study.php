@@ -147,11 +147,6 @@ function slider_enqeues() {
 }
 add_action('wp_enqueue_scripts', 'slider_enqeues');
 
-
-
-
-
-
 // Single Template Path
 add_filter( 'template_include', 'case_study_single_template', 1 );
 function case_study_single_template( $template_path ) {
@@ -277,10 +272,21 @@ function homepage_logos_shortcode($atts, $content = null) { ob_start(); ?>
     <h1 class="text-center">Customers Who Use Socrata</h1>
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1 carousel">
-      <?php $query = new WP_Query('post_type=case_study&showposts=10'); while ($query->have_posts()) : $query->the_post(); ?>
-        <div>
-          <a href="<?php the_permalink() ?>"><img data-lazy="<?php echo case_study_logo('full', 100); ?>" style="max-height:100%;"></a>
-        </div>
+      <?php $query = new WP_Query('post_type=case_study&showposts=20'); while ($query->have_posts()) : $query->the_post(); ?>
+        <?php $meta = get_case_study_meta(); 
+            if ($meta[11]) { ?>
+            <div>
+                <a href="<?php echo $meta[2]; ?>" target="_blank"><img data-lazy="<?php echo case_study_logo('full', 100); ?>" style="max-height:100%;"></a>
+            </div>
+            <?php
+            }
+            else { ?>
+            <div>
+                <a href="<?php echo $meta[2]; ?>" target="_blank"><img data-lazy="<?php echo case_study_logo('full', 100); ?>" style="max-height:100%;"></a>
+            </div>
+            <?php
+            } 
+        ?>
       <?php endwhile; wp_reset_postdata(); ?>
       </div>
     </div>
@@ -304,7 +310,7 @@ function logos_shortcode( $atts ) {
     'category' => '',
     'orderby' => 'date',
     'order' => 'desc',
-    'posts' => 10,
+    'posts' => 20,
     ), $atts ) );
     $options = array(
     'post_type' => $type,
@@ -319,9 +325,20 @@ function logos_shortcode( $atts ) {
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1 carousel">
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-      <div>
-        <a href="<?php the_permalink() ?>"><img data-lazy="<?php echo case_study_logo('full', 100); ?>" style="max-height:100%;"></a>
-      </div>
+        <?php $meta = get_case_study_meta(); 
+            if ($meta[11]) { ?>
+            <div>
+                <a href="<?php echo $meta[2]; ?>" target="_blank"><img data-lazy="<?php echo case_study_logo('full', 100); ?>" style="max-height:100%;"></a>
+            </div>
+            <?php
+            }
+            else { ?>
+            <div>
+                <a href="<?php echo $meta[2]; ?>" target="_blank"><img data-lazy="<?php echo case_study_logo('full', 100); ?>" style="max-height:100%;"></a>
+            </div>
+            <?php
+            } 
+        ?>
     <?php endwhile; wp_reset_postdata(); ?>
     </div>
   </div>
@@ -349,6 +366,9 @@ function case_study_shortcode($atts, $content = null) { ob_start(); ?>
     <div class="container">
       <div id="container" class="articles">
       <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); // run the loop ?>
+    <?php $meta = get_case_study_meta(); 
+        if ($meta[11]) {}
+        else { ?>
         <article class="item">
           <div class="wrapper">
             <a href="<?php the_permalink() ?>"><img src="<?php echo case_study_hero ('full', 358, 210 ); ?>" class="img-responsive" style="width:100%;"></a>
@@ -366,6 +386,9 @@ function case_study_shortcode($atts, $content = null) { ob_start(); ?>
             </div>
           </div>
         </article>
+            <?php
+            } 
+        ?>
         <?php endwhile; ?>
         <?php
           if (function_exists(custom_pagination)) {
