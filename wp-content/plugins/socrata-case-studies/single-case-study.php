@@ -1,7 +1,7 @@
 <?php $meta = get_case_study_meta(); 
     if ($meta[11]) {} 
     else { ?>
-<div class="hero" style="background-image: url(<?php echo case_study_hero('full', 1600, 400); ?>);"></div>
+<div class="hero" style="background-image: url(<?php echo case_study_hero('full', 1600, 300); ?>);"></div>
 <?php
   $meta = get_attribution_meta(); 
   if ($meta[1]) {
