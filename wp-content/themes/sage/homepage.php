@@ -16,7 +16,7 @@
 				<div class="col-sm-6 col-md-5  col-md-offset-1">
 					<article class="text-center">
 						<h2>Open Data</h2>
-						<p>A scalable cloud platform helps you create a sustainable open data program from day one.</p>
+						<p>A scalable cloud platform helps you create a sustainable open data programme from day one.</p>
 						<div class="btn-wrapper"><a href="/open-data" class="btn btn-success">Explore Open Data</a></div>
 					</article>
 				</div>

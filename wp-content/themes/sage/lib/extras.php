@@ -31,10 +31,3 @@ function excerpt_more() {
   return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
-
-// REMOVE MENU ITEM
-/*function remove_menus(){
-  remove_menu_page( 'edit.php' );                   //Posts
-  remove_menu_page( 'edit-comments.php' );          //Comments  
-}
-add_action( 'admin_menu', __NAMESPACE__ . '\\remove_menus' );*/

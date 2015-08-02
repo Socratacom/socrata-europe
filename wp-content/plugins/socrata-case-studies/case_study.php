@@ -170,7 +170,7 @@ function case_study_hero( $thumb_size, $image_width, $image_height ) {
   $params = array( 'width' => $image_width, 'height' => $image_height );   
   $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID, '' ), $thumb_size );
   $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
-  return $custom_img_src;   
+  return $custom_img_src;
 }
 
 function case_study_logo( $thumb_size, $image_width ) { 

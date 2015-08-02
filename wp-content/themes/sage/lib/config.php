@@ -58,6 +58,7 @@ function display_sidebar() {
        */
       [
         'is_404',
+        'is_home',
         'is_front_page',
         'is_page',
         'is_single'
